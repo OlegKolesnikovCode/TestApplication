@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
+import ResponsiveAppBar from '../components/ResponsiveAppBar'; // Import the Layout component
 import App from './App';
 import NotFoundPage from './NotFoundPage';
 import StudiesPage from './StudiesPage';
@@ -10,40 +12,39 @@ import RegulatorPage from './RegulatorPage';
 
 import './styles.css';
 
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-
-
 const router = createBrowserRouter([
-
-{
+  {
     path: '/',
-    element: <App/>,
-    errorElement: <NotFoundPage/>,
-},
-{
-    path: '/StudiesPage',
-    element: <StudiesPage/>,
-},
-{
-    path: '/SubjectsPage',
-    element: <SubjectsPage/>,
-},
-{
-    path: '/SchedulePage',
-    element: <SchedulePage/>,
-},
-{
-    path: '/RegulatorPage',
-    element: <RegulatorPage/>,
-}
-
+    element: <ResponsiveAppBar />, // Use the Layout component here
+    errorElement: <NotFoundPage />,
+    children: [ // Nest your page routes as children
+      {
+        path: '',
+        element: <App />,
+      },
+      {
+        path: 'StudiesPage',
+        element: <StudiesPage />,
+      },
+      {
+        path: 'SubjectsPage',
+        element: <SubjectsPage />,
+      },
+      {
+        path: 'SchedulePage',
+        element: <SchedulePage />,
+      },
+      {
+        path: 'RegulatorPage',
+        element: <RegulatorPage />,
+      },
+    ],
+  },
 ]);
 
-//Current and recommended way to initialize and render a React application, introduced in React 18 (released in March 2022).
 const root = ReactDOM.createRoot(document.getElementById('root')!);
 root.render(
-<React.StrictMode>
-<RouterProvider router={router}/>
-</React.StrictMode>
+  <React.StrictMode>
+    <RouterProvider router={router} />
+  </React.StrictMode>
 );
-
