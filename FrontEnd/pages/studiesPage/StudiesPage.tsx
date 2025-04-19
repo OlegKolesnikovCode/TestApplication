@@ -1,6 +1,6 @@
 import React from 'react';
-import ResponsiveAppBar from '../components/ResponsiveAppBar';
-import DashboardLayout from '../components/DashboardLayout';
+import ResponsiveAppBar from '../../components/ResponsiveAppBar';
+import DashboardLayout from './StudiesPageLayout';
 const StudiesPage = () => {
     return (
         <>

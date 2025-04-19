@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 
-import App from './App';
-import NotFoundPage from './NotFoundPage';
-import StudiesPage from './StudiesPage';
-import SubjectsPage from './SubjectsPage';
-import SchedulePage from './SchedulePage';
-import RegulatorPage from './RegulatorPage';
+import App from '../pages/homePage/HomePage';
+import NotFoundPage from '../pages/notFoundPage/NotFoundPage';
+import StudiesPage from '../pages/studiesPage/StudiesPage';
+import SubjectsPage from '../pages/subjectPAge/SubjectsPage';
+import SchedulePage from '../pages/schedulePage/SchedulePage';
+import RegulatorPage from '../pages/regulatoryPage/RegulatorPage';
 
 import './styles.css';
 
