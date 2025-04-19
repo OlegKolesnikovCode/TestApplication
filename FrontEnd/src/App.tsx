@@ -1,5 +1,14 @@
 import React from 'react';
+import ResponsiveAppBar from '../components/ResponsiveAppBar';
+import DashboardLayout from '../components/DashboardLayout';
 
-const App = () => <h1>Hello from Vite + React + TS</h1>;
-
+const App = () => {
+  return (
+      <>
+      <ResponsiveAppBar/>
+      <DashboardLayout/>
+          <h1>App</h1>
+      </>
+  );
+};
 export default App;

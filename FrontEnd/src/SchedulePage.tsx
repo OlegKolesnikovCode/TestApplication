@@ -1,5 +1,13 @@
 import React from 'react';
-
-const SchedulePage = () => <h1>SchedulePage</h1>;
-
+import ResponsiveAppBar from '../components/ResponsiveAppBar';
+import DashboardLayout from '../components/DashboardLayout';
+const SchedulePage = () => {
+    return (
+        <>
+        <ResponsiveAppBar/>
+        <DashboardLayout/>
+            <h1>SchedulePage</h1>
+        </>
+    );
+};
 export default SchedulePage;

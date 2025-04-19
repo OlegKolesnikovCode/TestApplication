@@ -96,13 +96,13 @@ git push -u origin main
 #After that use 
 git push
 
-#Alternativly: Create an alies :
+#Alternative #1: Create an alies :
 git config --global alias.acp '!git add . && git commit -m'
 
 #To use it
 git acp "my comment" && git push
 
-#OR create a PowerShell Function by running the following command
+#Alternative 2:  create a PowerShell Function by running the following command
 notepad $PROFILE
 
 #Paste this into the file:
