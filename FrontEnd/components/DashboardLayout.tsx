@@ -108,7 +108,7 @@ export default function DashboardLayoutBasic(props: any) {
       theme={demoTheme}
       window={demoWindow}
     >
-      <DashboardLayout>
+      <DashboardLayout >
         <PageContainer>
           <Grid container spacing={1}>
             <Grid size={5} />

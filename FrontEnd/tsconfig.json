@@ -11,5 +11,5 @@
       "skipLibCheck": true,
       "forceConsistentCasingInFileNames": true
     },
-    "include": ["src", "components/DashboardLayout.tsx", "pages/studiesPage/StudiesPage.tsx", "pages/notFoundPage/NotFoundPage.tsx", "pages/regulatoryPage/RegulatorPage.tsx", "pages/schedulePage/SchedulePage.tsx", "pages/subjectPAge/SubjectsPage.tsx", "pages/homePage/HomePage.tsx"]
+    "include": ["src", "components/DashboardLayout.tsx", "pages/studiesPage/StudiesPage.tsx", "pages/notFoundPage/NotFoundPage.tsx", "pages/regulatoryPage/RegulatorPage.tsx", "pages/schedulePage/SchedulePage.tsx", "pages/subjectPage/SubjectsPage.tsx", "pages/homePage/HomePage.tsx"]
   }

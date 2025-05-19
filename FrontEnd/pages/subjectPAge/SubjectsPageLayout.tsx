@@ -1,7 +1,5 @@
 import * as React from 'react';
 import { createTheme, styled } from '@mui/material/styles';
-import DashboardIcon from '@mui/icons-material/Dashboard';
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import BarChartIcon from '@mui/icons-material/BarChart';
 import DescriptionIcon from '@mui/icons-material/Description';
 import LayersIcon from '@mui/icons-material/Layers';
@@ -10,24 +8,35 @@ import { DashboardLayout } from '@toolpad/core/DashboardLayout';
 import { PageContainer } from '@toolpad/core/PageContainer';
 import Grid from '@mui/material/Grid';
 
+import SiteFiles from './files/SiteFiles'; 
+import ProtocolFiles from './files/ProtocolFiles'; 
+import EmployeesFiles from './files/EmployeesFiles'; 
+import RegulatoryFiles from './files/RegulatoryFiles';
+
+RegulatoryFiles
 const NAVIGATION: Navigation = [
   {
     kind: 'header',
     title: 'Main items',
   },
   {
-    segment: 'Subjects',
-    title: 'Subjects',
+    segment: 'regulatory', // Changed to lowercase for consistency in routing
+    title: 'Regulatory',
     icon: <BarChartIcon />,
     children: [
       {
-        segment: 'Enrolled',
-        title: 'Enrolled',
+        segment: 'protocols', // Changed to lowercase for routing
+        title: 'Protocols',
         icon: <DescriptionIcon />,
       },
       {
-        segment: 'All',
-        title: 'All',
+        segment: 'employees', // Changed to lowercase
+        title: 'Employees',
+        icon: <DescriptionIcon />,
+      },
+      {
+        segment: 'site', // Changed to lowercase
+        title: 'Site',
         icon: <DescriptionIcon />,
       },
     ],
@@ -81,7 +90,7 @@ const demoTheme = createTheme({
 
 function useDemoRouter(initialPath: string): Router {
   const [pathname, setPathname] = React.useState(initialPath);
-
+ 
   const router = React.useMemo(() => {
     return {
       pathname,
@@ -102,11 +111,66 @@ const Skeleton = styled('div')<{ height: number }>(({ theme, height }) => ({
 
 export default function DashboardLayoutBasic(props: any) {
   const { window } = props;
-
-  const router = useDemoRouter('/dashboard');
-
-  // Remove this const when copying and pasting into your project.
+  const router = useDemoRouter('/regulatory'); // Set an initial path
   const demoWindow = window ? window() : undefined;
+
+  let content;
+
+  if (router.pathname === '/regulatory') {
+    content = <RegulatoryFiles />;
+  } 
+  else if (router.pathname === '/regulatory/site') {
+    content = <SiteFiles />;
+  } 
+  else if  (router.pathname === '/regulatory/protocols') {
+    content = <ProtocolFiles />;
+  } 
+  else if (router.pathname === '/regulatory/employees') {
+    content = <EmployeesFiles />;
+  } 
+
+  
+  
+  
+  else {
+    content = (
+      <Grid container spacing={1}>
+        <Grid size={5} />
+        <Grid size={12}>
+          <Skeleton height={14} />
+        </Grid>
+        <Grid size={12}>
+          <Skeleton height={14} />
+        </Grid>
+        <Grid size={4}>
+          <Skeleton height={100} />
+        </Grid>
+        <Grid size={8}>
+          <Skeleton height={100} />
+        </Grid>
+
+        <Grid size={12}>
+          <Skeleton height={150} />
+        </Grid>
+        <Grid size={12}>
+          <Skeleton height={14} />
+        </Grid>
+
+        <Grid size={3}>
+          <Skeleton height={100} />
+        </Grid>
+        <Grid size={3}>
+          <Skeleton height={100} />
+        </Grid>
+        <Grid size={3}>
+          <Skeleton height={100} />
+        </Grid>
+        <Grid size={3}>
+          <Skeleton height={100} />
+        </Grid>
+      </Grid>
+    );
+  }
 
   return (
     <AppProvider
@@ -117,43 +181,9 @@ export default function DashboardLayoutBasic(props: any) {
     >
       <DashboardLayout>
         <PageContainer>
-          <Grid container spacing={1}>
-            <Grid size={5} />
-            <Grid size={12}>
-              <Skeleton height={14} />
-            </Grid>
-            <Grid size={12}>
-              <Skeleton height={14} />
-            </Grid>
-            <Grid size={4}>
-              <Skeleton height={100} />
-            </Grid>
-            <Grid size={8}>
-              <Skeleton height={100} />
-            </Grid>
-
-            <Grid size={12}>
-              <Skeleton height={150} />
-            </Grid>
-            <Grid size={12}>
-              <Skeleton height={14} />
-            </Grid>
-
-            <Grid size={3}>
-              <Skeleton height={100} />
-            </Grid>
-            <Grid size={3}>
-              <Skeleton height={100} />
-            </Grid>
-            <Grid size={3}>
-              <Skeleton height={100} />
-            </Grid>
-            <Grid size={3}>
-              <Skeleton height={100} />
-            </Grid>
-          </Grid>
+          {content}
         </PageContainer>
       </DashboardLayout>
     </AppProvider>
   );
-}
+} 

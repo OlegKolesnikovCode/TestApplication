@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom/client';
 import App from '../pages/homePage/HomePage';
 import NotFoundPage from '../pages/notFoundPage/NotFoundPage';
 import StudiesPage from '../pages/studiesPage/StudiesPage';
-import SubjectsPage from '../pages/subjectPAge/SubjectsPage';
+import SubjectsPage from '../pages/subjectPage/SubjectsPage';
 import SchedulePage from '../pages/schedulePage/SchedulePage';
 import RegulatorPage from '../pages/regulatoryPage/RegulatorPage';
 
