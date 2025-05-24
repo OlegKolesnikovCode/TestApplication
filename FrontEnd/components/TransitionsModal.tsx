@@ -1,3 +1,5 @@
+//This component provides the structure,apperance, and functionailty of a modal. It is used in the ResponsiveAppBar.tsx
+
 import * as React from 'react';
 import { Modal, Box, Typography, Fade, Backdrop, IconButton } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';

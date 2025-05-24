@@ -7,6 +7,8 @@ import { Adb as AdbIcon } from '@mui/icons-material';
 import MenuIcon from '@mui/icons-material/Menu';
 import { Link } from 'react-router-dom';
 import TransitionsModal from './TransitionsModal';
+import Profile from '../pages/profile/Profile';
+
 
 const pages = [
   { name: 'Studies', path: '/StudiesPage' },
@@ -46,6 +48,8 @@ function ResponsiveAppBar() {
   const handleModalClose = () => {
     setOpenModal(null);
   };
+
+  
 
   return (
     <>
@@ -170,9 +174,11 @@ function ResponsiveAppBar() {
       </AppBar>
 
       {/* Modal: will show content based on which setting was clicked */}
+            
       {openModal && (
         <TransitionsModal open={Boolean(openModal)} onClose={handleModalClose} title={openModal}>
           <Typography>This is the {openModal} modal content.</Typography>
+          <Profile openModal={openModal}></Profile>
         </TransitionsModal>
       )}
     </>
